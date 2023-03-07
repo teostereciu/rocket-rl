@@ -20,9 +20,11 @@ def draw_line():
 def on_close(evt):
     global close_flag, f_coords
     close_flag = 1
-    # print(f_coords)
     # write all line coordinates to a file (only the numbers)
-    f_coords = re.sub("\(\)", "", f_coords)
+    f_coords = re.sub("\(", "", f_coords)
+    f_coords = re.sub("\)", "", f_coords)
+    f_coords = re.sub(",", "", f_coords)
+    # print(f_coords)
     with open('coords.txt', 'w') as f:
         f.write(f_coords)
     exit()
